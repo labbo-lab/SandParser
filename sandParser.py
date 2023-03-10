@@ -14,6 +14,8 @@ titleList = []
 idList = []
 urlList = []
 timeStampList = []
+voteList = []
+replyList = []
 
 i = 0
 for item in responsedict:
@@ -24,19 +26,30 @@ for item in responsedict:
     itemid = item["data"]["id"]
     itemurl = "https://sandspiel.club/#"+item["data"]["id"]
     itemtimestamp = item["data"]["timestamp"]
+    votes = item["data"]["score"]
+    replies = item["data"]["children"]
     titleList.append(itemtitle)
     idList.append(itemid)
     urlList.append(itemurl)
     timeStampList.append(itemtimestamp)
-
+    voteList.append(votes)
+    replyList.append(replies)
 i = 0
 for item in titleList:
     print("Post "+str(i+1))
     print("  Title: "+item)
     print("  Post ID: "+idList[i])
+    print("  Short Post ID: "+idList[i][:20])
     print("  Post URL: "+urlList[i])
     print("  Post date: "+timeStampList[i][:10])
     print("  Post time: "+timeStampList[i][12:19])
+    print("  Post votes: "+str(voteList[i]))
+    if replyList[i] != None:
+        print("  Post replies: "+str(replyList[i]))
+    else:
+        print("  Post has no replies.")
+    print("  Profile: https://sandspiel.club/browse/search/?user="+json.loads(requests.get("https://us-central1-sandtable-8d0f7.cloudfunctions.net/api/creations/"+idList[i][:20]).text)["user_id"])
+
     print("\n")
     i+=1
 
