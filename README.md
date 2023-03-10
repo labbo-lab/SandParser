@@ -6,3 +6,9 @@ SandParser is a program written in Python for requesting and searching posts fro
 Some of the code was made by Labbo-Lab (https://github.com/labbo-lab), thanks to xym!
 
 ![image](https://user-images.githubusercontent.com/127464956/224216570-e0599aab-7a6a-48ab-ba4c-a8a711267cb4.png)
+
+## Features
+- Find profiles by post
+- Access Browse outside your browse
+- Retrieve older posts
+- See the exact time that a post was posted (Works on older posts)
