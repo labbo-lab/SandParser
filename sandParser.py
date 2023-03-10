@@ -48,8 +48,12 @@ for item in titleList:
         print("  Post replies: "+str(replyList[i]))
     else:
         print("  Post has no replies.")
-    print("  Profile: https://sandspiel.club/browse/search/?user="+json.loads(requests.get("https://us-central1-sandtable-8d0f7.cloudfunctions.net/api/creations/"+idList[i][:20]).text)["user_id"])
 
+    userid = json.loads(requests.get("https://us-central1-sandtable-8d0f7.cloudfunctions.net/api/creations/"+idList[i][:20]).text)["user_id"]
+    if userid != None:
+        print("  Profile: https://sandspiel.club/browse/search/?user="+userid)
+    else:
+        print("  No profile info (Probably and old post with a different structure)")
     print("\n")
     i+=1
 
