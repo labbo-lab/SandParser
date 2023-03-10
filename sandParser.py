@@ -53,7 +53,7 @@ for item in titleList:
     if userid != None:
         print("  Profile: https://sandspiel.club/browse/search/?user="+userid)
     else:
-        print("  No profile info (Probably and old post with a different structure)")
+        print("  No profile info (Probably an old post with a different structure)")
     print("\n")
     i+=1
 
